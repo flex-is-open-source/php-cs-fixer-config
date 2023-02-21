@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit colors="true"
+    bootstrap="./vendor/autoload.php"
+    cacheResultFile="./var/tmp/cache/phpunit/phpunit.result.cache"
+    testdox="true"
+    beStrictAboutCoversAnnotation="true"
+    beStrictAboutChangesToGlobalState="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutResourceUsageDuringSmallTests="true"
+    beStrictAboutTodoAnnotatedTests="true">
+    <logging>
+        <testdoxText outputFile="./var/tmp/cache/phpunit/log/testdox.txt" />
+    </logging>
+    <coverage cacheDirectory="./var/tmp/cache/"
+        processUncoveredFiles="true"
+        ignoreDeprecatedCodeUnits="true"
+        disableCodeCoverageIgnore="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <report>
+            <html outputDirectory="./var/tmp/coverage/html-coverage" />
+        </report>
+    </coverage>
+    <testsuites>
+        <testsuite name="all">
+            <directory>tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
