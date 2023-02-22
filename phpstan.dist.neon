@@ -3,4 +3,3 @@ parameters:
     tmpDir: var/tmp/phpstan
     paths:
         - src
-        - tests

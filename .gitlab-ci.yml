@@ -9,8 +9,8 @@ build:
     stage: build
     artifacts:
         paths:
-            - var/
-            - vendor/
+            - var
+            - vendor
     script:
         - composer install
 
