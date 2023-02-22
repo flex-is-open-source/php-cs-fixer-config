@@ -19,6 +19,6 @@ unit-test:
         - build
     script:
         - make cs-check
-        - make analyse
+        - make analyse-cicd
         - make coverage-cicd
     coverage: /^\s*Lines:\s*\d+.\d+\%/

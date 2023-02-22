@@ -11,6 +11,9 @@ cs-check:
 analyse:
 	vendor/bin/phpstan analyse
 
+analyse-cicd:
+	vendor/bin/phpstan analyse --no-interaction
+
 test:
 	vendor/bin/phpunit
 
