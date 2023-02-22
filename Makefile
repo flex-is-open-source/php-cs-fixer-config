@@ -17,6 +17,9 @@ analyse-cicd:
 test:
 	vendor/bin/phpunit
 
+test-cicd:
+	vendor/bin/phpunit --no-progress
+
 coverage:
 	${PHP_COVERAGE} vendor/bin/phpunit --coverage-html var/tmp/coverage
 

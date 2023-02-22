@@ -2,11 +2,9 @@ stages:
     - build
     - test
 
-default:
-    tags: [dev]
-
-build:
+composer:
     stage: build
+    tags: [build-php]
     artifacts:
         paths:
             - var
@@ -14,12 +12,24 @@ build:
     script:
         - composer install
 
-unit-test:
-    stage: test
+code-coverage:
+    stage: build
+    tags: [build-php]
     dependencies:
-        - build
+        - composer
+    script:
+        - make coverage-cicd
+    coverage: /^\s*Lines:\s*\d+.\d+\%/
+
+analyse:
+    stage: test
+    tags: [test-php]
     script:
         - make cs-cicd
         - make analyse-cicd
-        - make coverage-cicd
-    coverage: /^\s*Lines:\s*\d+.\d+\%/
+
+unit-test:
+    stage: test
+    tags: [test-php]
+    script:
+        - make test-cicd
