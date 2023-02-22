@@ -1,0 +1,8 @@
+#########################################
+# Exclude files from exporting          #
+#########################################
+
+/.* export-ignore
+/phpstan.dist.neon export-ignore
+/phpunit.xml.dist export-ignore
+/tests/ export-ignore

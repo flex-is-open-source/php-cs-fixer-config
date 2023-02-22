@@ -1,0 +1,24 @@
+stages:
+    - build
+    - test
+
+default:
+    tags: [dev]
+
+build:
+    stage: build
+    artifacts:
+        paths:
+            - vendor/
+    script:
+        - composer install
+
+unit-test:
+    stage: test
+    dependencies:
+        - build
+    script:
+        - make cs-check
+        - make analyse
+        - make coverage-cicd
+    coverage: /^\s*Lines:\s*\d+.\d+\%/
