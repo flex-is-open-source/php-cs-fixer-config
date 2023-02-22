@@ -15,6 +15,6 @@ $finder->exclude('vendor');
 
 $config = ConfigFactory::fromRuleSet($ruleSet);
 $config->setFinder($finder);
-$config->setCacheFile('./tmp/cache/php-cs-fixer.cache');
+$config->setCacheFile('./var/tmp/php-cs-fixer.cache');
 
 return $config;
