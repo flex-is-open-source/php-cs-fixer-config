@@ -20,7 +20,7 @@ final class Php81 implements RuleSetInterface
             'global_namespace_import' => [
                 'import_classes' => true,
             ],
-            'not_operator_with_successor_space' => true,
+            'not_operator_with_space' => true,
             'nullable_type_declaration_for_default_null_value' => [
                 'use_nullable_type_declaration' => true,
             ],

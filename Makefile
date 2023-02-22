@@ -5,11 +5,14 @@ it: cs analyse test
 cs:
 	vendor/bin/php-cs-fixer fix
 
-cs-check:
-	vendor/bin/php-cs-fixer fix --dry-run
+cs-cicd:
+	vendor/bin/php-cs-fixer fix --dry-run --no-interaction
 
 analyse:
 	vendor/bin/phpstan analyse
+
+analyse-cicd:
+	vendor/bin/phpstan analyse --no-interaction
 
 test:
 	vendor/bin/phpunit
