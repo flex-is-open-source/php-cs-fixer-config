@@ -15,8 +15,8 @@ composer:
 code-coverage:
     stage: build
     tags: [build-php]
-    dependencies:
-        - build
+    needs:
+        - composer
     script:
         - make coverage-cicd
     coverage: /^\s*Lines:\s*\d+.\d+\%/
@@ -24,6 +24,10 @@ code-coverage:
 analyse:
     stage: test
     tags: [test-php]
+    needs:
+        - composer
+    dependencies:
+        - composer
     script:
         - make cs-cicd
         - make analyse-cicd
@@ -31,5 +35,9 @@ analyse:
 unit-test:
     stage: test
     tags: [test-php]
+    needs:
+        - composer
+    dependencies:
+        - composer
     script:
         - make test-cicd
