@@ -6,7 +6,7 @@ cs:
 	vendor/bin/php-cs-fixer fix
 
 cs-cicd:
-	vendor/bin/php-cs-fixer fix --dry-run --no-interaction --no-progress
+	vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
 
 analyse:
 	vendor/bin/phpstan analyse
