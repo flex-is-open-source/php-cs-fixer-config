@@ -39,16 +39,6 @@
         }
     },
     "scripts": {
-        "post-install-cmd": "mkdir -p ./var/tmp/cache",
-        "analyse": "phpstan analyse",
-        "cs-list": "php-cs-fixer fix --dry-run",
-        "cs-fix": "php-cs-fixer fix",
-        "test": "phpunit"
-    },
-    "scripts-descriptions": {
-        "analyse": "Analyse code with static code analyser",
-        "cs-list": "List coding standard violations",
-        "cs-fix": "Fixes coding standards",
-        "test": "Runs automated tests"
+        "post-install-cmd": "make install"
     }
 }

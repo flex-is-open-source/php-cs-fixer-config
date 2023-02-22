@@ -11,17 +11,14 @@ build:
         paths:
             - vendor/
     script:
-        - composer install --classmap-authoritative
+        - composer install
 
 unit-test:
     stage: test
     dependencies:
         - build
     script:
-        - whoami
-        - ./vendor/bin/phpstan analyse
-        - shopt -s expand_aliases
-        - alias -p
-        - php_coverage ./vendor/bin/phpunit --coverage-text --colors=never
-        - ./vendor/bin/php-cs-fixer fix --dry-run
+        - make cs-check
+        - make analyse
+        - make coverage-cicd
     coverage: /^\s*Lines:\s*\d+.\d+\%/
