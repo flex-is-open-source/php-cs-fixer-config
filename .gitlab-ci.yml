@@ -16,7 +16,7 @@ code-coverage:
     stage: build
     tags: [build-php]
     dependencies:
-        - composer
+        - build
     script:
         - make coverage-cicd
     coverage: /^\s*Lines:\s*\d+.\d+\%/
