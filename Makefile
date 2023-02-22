@@ -6,13 +6,13 @@ cs:
 	vendor/bin/php-cs-fixer fix
 
 cs-cicd:
-	vendor/bin/php-cs-fixer fix --dry-run --no-interaction
+	vendor/bin/php-cs-fixer fix --dry-run --no-interaction --no-progress
 
 analyse:
 	vendor/bin/phpstan analyse
 
 analyse-cicd:
-	vendor/bin/phpstan analyse --no-interaction
+	vendor/bin/phpstan analyse --no-interaction --no-progress
 
 test:
 	vendor/bin/phpunit
