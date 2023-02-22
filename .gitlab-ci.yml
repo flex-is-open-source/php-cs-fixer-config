@@ -18,7 +18,7 @@ unit-test:
     dependencies:
         - build
     script:
-        - make cs-check
+        - make cs-cicd
         - make analyse-cicd
         - make coverage-cicd
     coverage: /^\s*Lines:\s*\d+.\d+\%/
