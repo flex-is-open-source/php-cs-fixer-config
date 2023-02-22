@@ -2,6 +2,14 @@ stages:
     - build
     - test
 
+._test_: &_test_
+    stage: test
+    tags: [test-php]
+    needs:
+        - composer
+    dependencies:
+        - composer
+
 composer:
     stage: build
     tags: [build-php]
@@ -22,22 +30,12 @@ code-coverage:
     coverage: /^\s*Lines:\s*\d+.\d+\%/
 
 analyse:
-    stage: test
-    tags: [test-php]
-    needs:
-        - composer
-    dependencies:
-        - composer
+    <<: *_test_
     script:
         - make cs-cicd
         - make analyse-cicd
 
 unit-test:
-    stage: test
-    tags: [test-php]
-    needs:
-        - composer
-    dependencies:
-        - composer
+    <<: *_test_
     script:
         - make test-cicd
