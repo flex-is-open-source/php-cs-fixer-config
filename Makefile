@@ -15,16 +15,16 @@ analyse-cicd:
 	vendor/bin/phpstan analyse --no-interaction --no-progress
 
 test:
-	vendor/bin/phpunit
+	php vendor/bin/phpunit --colors --testdox
 
 test-cicd:
-	vendor/bin/phpunit --no-progress
+	php vendor/bin/phpunit --no-progress
 
-coverage:
-	${PHP_COVERAGE} vendor/bin/phpunit --coverage-html var/tmp/coverage
+coverage-html:
+	${PHP_COVERAGE} vendor/bin/phpunit --coverage-html=.phpunit/coverage-html --colors --testdox --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
 
 coverage-cicd:
-	${PHP_COVERAGE} vendor/bin/phpunit --coverage-text --colors=never
+	${PHP_COVERAGE} vendor/bin/phpunit --do-not-cache-result --log-junit=.phpunit/coverage-junit.xml --coverage-cobertura=.phpunit/coverage-cobertura.xml --coverage-text --colors=never
 
 install:
 	mkdir -p var/tmp

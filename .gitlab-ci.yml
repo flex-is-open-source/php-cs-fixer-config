@@ -15,7 +15,6 @@ composer:
     tags: [build-php]
     artifacts:
         paths:
-            - var
             - vendor
     script:
         - composer install
@@ -27,6 +26,13 @@ code-coverage:
         - composer
     script:
         - make coverage-cicd
+    artifacts:
+        when: always
+        reports:
+            junit: .phpunit/coverage-junit.xml
+            coverage_report:
+                coverage_format: cobertura
+                path: .phpunit/coverage-cobertura.xml
     coverage: /^\s*Lines:\s*\d+.\d+\%/
 
 analyse:
