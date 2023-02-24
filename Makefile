@@ -25,9 +25,3 @@ coverage-html:
 
 coverage-cicd:
 	${PHP_COVERAGE} vendor/bin/phpunit --do-not-cache-result --log-junit=.phpunit/coverage-junit.xml --coverage-cobertura=.phpunit/coverage-cobertura.xml --coverage-text --colors=never
-
-install:
-	mkdir -p var/tmp
-
-clean:
-	rm -rf var/tmp/*
