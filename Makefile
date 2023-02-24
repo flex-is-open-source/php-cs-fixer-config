@@ -9,10 +9,10 @@ cs-cicd:
 	vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
 
 analyse:
-	vendor/bin/phpstan analyse
+	php vendor/bin/phpstan analyse
 
 analyse-cicd:
-	vendor/bin/phpstan analyse --no-interaction --no-progress
+	php vendor/bin/phpstan analyse --no-interaction --no-progress
 
 test:
 	php vendor/bin/phpunit --colors --testdox
