@@ -3,10 +3,10 @@ PHP_COVERAGE = php -d zend_extension=xdebug.so -d xdebug.mode=coverage
 it: cs analyse test
 
 cs:
-	vendor/bin/php-cs-fixer fix
+	php vendor/bin/php-cs-fixer fix
 
 cs-cicd:
-	vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
+	php vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
 
 analyse:
 	php vendor/bin/phpstan analyse
