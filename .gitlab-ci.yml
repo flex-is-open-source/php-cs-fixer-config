@@ -2,23 +2,46 @@ stages:
     - build
     - test
 
-default:
-    tags: [dev]
+._test_: &_test_
+    stage: test
+    tags: [test-php]
+    needs:
+        - composer
+    dependencies:
+        - composer
 
-build:
+composer:
     stage: build
+    tags: [build-php]
     artifacts:
         paths:
-            - vendor/
+            - vendor
     script:
         - composer install
 
-unit-test:
-    stage: test
-    dependencies:
-        - build
+code-coverage:
+    stage: build
+    tags: [build-php]
+    needs:
+        - composer
+    script:
+        - make coverage-cicd
+    artifacts:
+        when: always
+        reports:
+            junit: .phpunit/coverage-junit.xml
+            coverage_report:
+                coverage_format: cobertura
+                path: .phpunit/coverage-cobertura.xml
+    coverage: /^\s*Lines:\s*\d+.\d+\%/
+
+analyse:
+    <<: *_test_
     script:
         - make cs-cicd
         - make analyse-cicd
-        - make coverage-cicd
-    coverage: /^\s*Lines:\s*\d+.\d+\%/
+
+unit-test:
+    <<: *_test_
+    script:
+        - make test-cicd

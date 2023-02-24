@@ -37,8 +37,5 @@
         "psr-4": {
             "Tests\\": "tests"
         }
-    },
-    "scripts": {
-        "post-install-cmd": "make install"
     }
 }

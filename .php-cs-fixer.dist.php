@@ -13,6 +13,6 @@ $finder->exclude('var');
 $ruleSet = new Php81();
 $config = ConfigFactory::fromRuleSet($ruleSet);
 $config->setFinder($finder);
-$config->setCacheFile('var/tmp/php-cs-fixer.cache');
+$config->setCacheFile('.php-cs-fixer.cache');
 
 return $config;

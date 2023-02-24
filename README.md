@@ -1,4 +1,4 @@
-![pipeline](//git.flexis.sk/php/php-cs-fixer-config/badges/main/pipeline.svg?key_text=main)
+![pipeline](//git.flexis.sk/php/php-cs-fixer-config/badges/main/pipeline.svg?key_text=build)
 ![coverage](//git.flexis.sk/php/php-cs-fixer-config/badges/main/coverage.svg?job=coverage)
 
 # Introduction
