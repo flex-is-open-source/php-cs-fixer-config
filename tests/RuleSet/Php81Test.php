@@ -25,8 +25,8 @@ final class Php81Test extends TestCase
     public function testSupportedPhpVersion(): void
     {
         $phpVersion = $this->ruleSet->getPhpVersion();
-        $this->assertSame(80100, $phpVersion);
-        $this->assertIsInt($phpVersion);
+        self::assertSame(80100, $phpVersion);
+        self::assertIsInt($phpVersion);
     }
 
     /**
@@ -35,8 +35,7 @@ final class Php81Test extends TestCase
     public function testRules(): void
     {
         $rules = $this->ruleSet->getRules();
-        $this->assertIsArray($rules);
-        $this->assertArrayHasKey('@PhpCsFixer', $rules);
+        self::assertIsArray($rules);
+        self::assertArrayHasKey('@PhpCsFixer', $rules);
     }
-
 }
