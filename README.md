@@ -1,9 +1,10 @@
 # Configuration for PHP Coding Standards Fixer
 
-![pipeline](https://git.flexis.sk/php/php-cs-fixer-config/badges/main/pipeline.svg?key_text=build)
-![coverage](https://git.flexis.sk/php/php-cs-fixer-config/badges/main/coverage.svg)
-![License](https://img.shields.io/github/license/flex-is/php-cs-fixer-config)
-![PHP Version](https://img.shields.io/packagist/dependency-v/flexis/php-cs-fixer-config/php)
+[![pipeline](https://git.flexis.sk/php/php-cs-fixer-config/badges/main/pipeline.svg?key_text=build)]()
+[![coverage](https://git.flexis.sk/php/php-cs-fixer-config/badges/main/coverage.svg)]()
+[![License](https://img.shields.io/github/license/flex-is/php-cs-fixer-config?logo=open-source-initiative)](https://opensource.org/license/mit/)
+[![PHP Version](https://img.shields.io/packagist/dependency-v/flexis/php-cs-fixer-config/php?logo=php)](https://packagist.org/packages/flexis/php-cs-fixer-config)
+[![Packagist Version](https://img.shields.io/packagist/v/flexis/php-cs-fixer-config?logo=packagist)](https://packagist.org/packages/flexis/php-cs-fixer-config)
 
 This repository was created for the purpose of introducing uniform coding standards for PHP code within [FLEX-IS](https://flexis.sk).
 
@@ -18,7 +19,6 @@ It is based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.co
 ## Installation
 
 `$ composer require --dev flexis/php-cs-fixer-config`
-
 
 ## License
 
