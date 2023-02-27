@@ -20,7 +20,7 @@ use Flexis\PhpCsFixer\RuleSetInterface;
  */
 final class Php81 implements RuleSetInterface
 {
-    private ?string $header;
+    private ?string $header = null;
 
     /** {@inheritDoc} */
     public function getRules(): array
