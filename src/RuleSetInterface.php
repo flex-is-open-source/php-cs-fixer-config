@@ -2,6 +2,15 @@
 
 declare(strict_types=1);
 
+/*
+ * This file is part of configuration package for PHP CS Fixer.
+ *
+ * (c) Martin Miskovic <miskovic.martin@gmail.com>
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 namespace Flexis\PhpCsFixer;
 
 /**
@@ -22,4 +31,9 @@ interface RuleSetInterface
      * @see http://php.net/manual/en/reserved.constants.php
      */
     public function getPhpVersion(): int;
+
+    /**
+     * Set automatic header comment.
+     */
+    public function setHeader(string $header): void;
 }
