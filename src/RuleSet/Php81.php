@@ -20,6 +20,7 @@ use Flexis\PhpCsFixer\RuleSetInterface;
  */
 final class Php81 implements RuleSetInterface
 {
+    /** Header comment for each file */
     private ?string $header = null;
 
     /** {@inheritDoc} */
@@ -37,9 +38,14 @@ final class Php81 implements RuleSetInterface
                 'use_nullable_type_declaration' => true,
             ],
             'single_line_throw' => true,
+            'yoda_style' => [
+                'equal' => false,
+                'identical' => false,
+                'less_and_greater' => false,
+            ],
         ];
 
-        if (null !== $this->header) {
+        if ($this->header !== null) {
             $rules['header_comment'] = [
                 'header' => $this->header,
             ];
