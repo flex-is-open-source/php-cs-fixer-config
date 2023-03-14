@@ -2,7 +2,7 @@
 /.phpstan/
 /var/
 /vendor/
-.php-cs-fixer.php
-phpstan.neon
-phpunit.xml
-*.cache
+/.php-cs-fixer.php
+/phpstan.neon
+/phpunit.xml
+/*.cache
