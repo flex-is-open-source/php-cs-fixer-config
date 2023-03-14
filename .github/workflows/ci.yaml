@@ -1,41 +1,41 @@
 name: CI
 
 on:
-  push:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+        steps:
+            - uses: actions/checkout@v3
 
-      - name: Cache composer dependencies
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+            - name: Cache composer dependencies
+              uses: actions/cache@v3
+              with:
+                  path: vendor
+                  key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
-      - name: Install composer dependencies
-        uses: php-actions/composer@v6
+            - name: Install composer dependencies
+              run: composer install
 
-      - name: Validate coding standards
-        run: vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
+            - name: Validate coding standards
+              run: vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
 
-      - name: Static analysis
-        uses: php-actions/phpstan@v3
+            - name: Static analysis
+              run: vendor/bin/phpstan analyse --no-interaction --no-progress
 
-      - name: Run unit tests
-        uses: php-actions/phpunit@v3
-        env:
-          XDEBUG_MODE: coverage
-        with:
-          php_extensions: "xdebug"
-          coverage_clover: ".build/coverage/clover.xml"
+            - name: Run unit tests
+              uses: php-actions/phpunit@v3
+              env:
+                  XDEBUG_MODE: coverage
+              with:
+                  php_extensions: "xdebug"
+                  coverage_clover: ".build/coverage/clover.xml"
 
-      - name: Upload code coverage report
-        uses: codacy/codacy-coverage-reporter-action@v1.3
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: ".build/coverage/clover.xml"
+            - name: Upload code coverage report
+              uses: codacy/codacy-coverage-reporter-action@v1.3
+              with:
+                  project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+                  coverage-reports: ".build/coverage/clover.xml"
