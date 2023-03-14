@@ -11,25 +11,25 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
-            - name: Composer > Validate
+            - name: Compile > Validate composer
               run: composer validate --strict
 
-            - name: Cache composer dependencies
+            - name: Compile > Cache composer
               uses: actions/cache@v3
               with:
                   path: vendor
                   key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
-            - name: Install composer dependencies
+            - name: Compile > Install composer
               run: composer install
 
-            - name: Validate coding standards
-              run: vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
+            - name: Lint > Coding standards
+              run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
 
-            - name: Static analysis
-              run: vendor/bin/phpstan analyse --no-interaction --no-progress
+            - name: Analyze > Static code analysis
+              run: vendor/bin/phpstan analyse
 
-            - name: Run unit tests
+            - name: Test > Unit tests
               uses: php-actions/phpunit@v3
               env:
                   XDEBUG_MODE: coverage
@@ -37,7 +37,7 @@ jobs:
                   php_extensions: "xdebug"
                   coverage_clover: ".build/coverage/clover.xml"
 
-            - name: Upload code coverage report
+            - name: Artifact > Codacy coverage report
               uses: codacy/codacy-coverage-reporter-action@v1.3
               with:
                   project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
