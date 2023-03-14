@@ -11,6 +11,9 @@ jobs:
         steps:
             - uses: actions/checkout@v3
 
+            - name: Composer > Validate
+              run: composer validate --strict
+
             - name: Cache composer dependencies
               uses: actions/cache@v3
               with:
