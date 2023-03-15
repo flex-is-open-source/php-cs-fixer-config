@@ -22,7 +22,7 @@ $finder->append([
     '.php-cs-fixer.dist.php',
 ]);
 
-// pick a configuration based on php version
+// Pick a configuration based on php version
 $ruleSet = new Php81();
 $ruleSet->setHeader(<<<'EOF'
     This file is part of configuration package for PHP CS Fixer.
