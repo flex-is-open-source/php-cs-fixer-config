@@ -18,8 +18,8 @@
 # Exclude files from exporting          #
 #########################################
 
+/tests/ export-ignore
 /.* export-ignore
 /Makefile export-ignore
 /phpstan.dist.neon export-ignore
 /phpunit.dist.xml export-ignore
-/tests/ export-ignore
