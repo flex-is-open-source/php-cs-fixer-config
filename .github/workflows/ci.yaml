@@ -1,5 +1,4 @@
 name: CI
-
 on: [push, pull_request]
 
 jobs:
@@ -33,15 +32,15 @@ jobs:
                   XDEBUG_MODE: coverage
               with:
                   php_extensions: "xdebug"
-                  coverage_clover: ".build/coverage/clover.xml"
+                  coverage_clover: ".coverage_clover.xml"
 
             - name: Test > Generate code coverage
               env:
                   XDEBUG_MODE: coverage
-              run: vendor/bin/phpunit --do-not-cache-result --coverage-clover=.build/coverage/clover.xml
+              run: vendor/bin/phpunit --do-not-cache-result --coverage-clover=.coverage_clover.xml
 
             - name: Artifact > Codacy coverage report
               uses: codacy/codacy-coverage-reporter-action@v1.3
               with:
                   project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                  coverage-reports: ".build/coverage/clover.xml"
+                  coverage-reports: ".coverage_clover.xml"
