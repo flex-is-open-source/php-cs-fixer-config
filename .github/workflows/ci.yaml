@@ -3,10 +3,16 @@ on: [push, pull_request]
 
 jobs:
     build:
+        name: Build PHP
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v3
+
+            - name: Env > Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.1
+                  coverage: xdebug
 
             - name: Compile > Validate composer
               run: composer validate --strict
@@ -32,15 +38,15 @@ jobs:
                   XDEBUG_MODE: coverage
               with:
                   php_extensions: "xdebug"
-                  coverage_clover: ".coverage_clover.xml"
+                  coverage_clover: ".build/coverage/clover.xml"
 
             - name: Test > Generate code coverage
               env:
                   XDEBUG_MODE: coverage
-              run: vendor/bin/phpunit --do-not-cache-result --coverage-clover=.coverage_clover.xml --display-warnings
+              run: vendor/bin/phpunit --do-not-cache-result --coverage-clover=.build/coverage/clover.xml --display-warnings
 
             - name: Artifact > Codacy coverage report
               uses: codacy/codacy-coverage-reporter-action@v1.3
               with:
                   project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-                  coverage-reports: ".coverage_clover.xml"
+                  coverage-reports: ".build/coverage/clover.xml"
