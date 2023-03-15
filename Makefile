@@ -22,4 +22,4 @@ test: # Run application tests.
 	php vendor/bin/phpunit --colors --testdox
 
 coverage: # Generate code coverage report in HTML format.
-	php ${PHP_ENABLE_XDEBUG} vendor/bin/phpunit --coverage-html=.phpunit/coverage-html --colors --testdox --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
+	php ${PHP_ENABLE_XDEBUG} vendor/bin/phpunit -v --coverage-html=.phpunit/coverage-html --colors --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
