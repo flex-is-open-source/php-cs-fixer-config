@@ -35,6 +35,11 @@ jobs:
                   php_extensions: "xdebug"
                   coverage_clover: ".build/coverage/clover.xml"
 
+            - name: Test > Generate code coverage
+              env:
+                  XDEBUG_MODE: coverage
+              run: vendor/bin/phpunit --do-not-cache-result --coverage-clover=.build/coverage/clover.xml
+
             - name: Artifact > Codacy coverage report
               uses: codacy/codacy-coverage-reporter-action@v1.3
               with:
