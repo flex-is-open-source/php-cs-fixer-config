@@ -1,27 +1,25 @@
-PHP_COVERAGE = php -d zend_extension=xdebug.so -d xdebug.mode=coverage
+PHP_ENABLE_XDEBUG = -d zend_extension=xdebug.so -d xdebug.mode=coverage
 
-it: cs analyse test
+.PHONY: help compile lint analyse test coverage build
 
-cs:
+help: # Show help for each of the Makefile recipes.
+	@grep -E '^[a-zA-Z0-9 -]+:.*#' Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
+
+compile: # Compile and install dependencies.
+	composer validate --strict
+	composer install
+
+build: lint analyse test coverage # Build and test application.
+
+lint: # Fix coding standards violations.
 	php vendor/bin/php-cs-fixer fix
+cs: lint # \033[33mAlias\033[00m for \033[1;32mlint\033[00m recipe.
 
-cs-cicd:
-	php vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
-
-analyse:
+analyse: # Analyze code quality.
 	php vendor/bin/phpstan analyse
 
-analyse-cicd:
-	php vendor/bin/phpstan analyse --no-interaction --no-progress
-
-test:
+test: # Run application tests.
 	php vendor/bin/phpunit --colors --testdox
 
-test-cicd:
-	php vendor/bin/phpunit --no-progress
-
-coverage-html:
-	${PHP_COVERAGE} vendor/bin/phpunit --coverage-html=.phpunit/coverage-html --colors --testdox --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
-
-coverage-cicd:
-	${PHP_COVERAGE} vendor/bin/phpunit --do-not-cache-result --log-junit=.phpunit/coverage-junit.xml --coverage-cobertura=.phpunit/coverage-cobertura.xml --coverage-text --colors=never
+coverage: # Generate code coverage report in HTML format.
+	php ${PHP_ENABLE_XDEBUG} vendor/bin/phpunit --coverage-html=.phpunit/coverage-html --colors --testdox --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
