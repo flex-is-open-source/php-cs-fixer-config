@@ -18,7 +18,7 @@ cs: lint # \033[33mAlias\033[00m for \033[1;32mlint\033[00m recipe.
 analyse: # Analyze code quality.
 	php vendor/bin/phpstan analyse
 
-test: # Run application tests in TestDox.
+test: # Run application tests.
 	php vendor/bin/phpunit --colors -v
 
 testdox: # Run application tests in TestDox format.
