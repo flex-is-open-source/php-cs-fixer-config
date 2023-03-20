@@ -18,7 +18,6 @@ use PhpCsFixer\Finder;
 $finder = new Finder();
 $finder->in(__DIR__);
 $finder->append([
-    '.php-cs-fixer.php',
     '.php-cs-fixer.dist.php',
 ]);
 

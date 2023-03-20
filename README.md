@@ -24,21 +24,20 @@ Create a configuration file `.php-cs-fixer.dist.php`:
 
 declare(strict_types=1);
 
-use Flexis\PhpCsFixer\ConfigFactory;
-use Flexis\PhpCsFixer\RuleSet\Php81;
+use Flexis\PhpCsFixer\RuleSet\Sets\Php81;
+use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = new Finder();
-$finder->in(__DIR__)
+$finder->in(__DIR__);
 $finder->append([
-    '.php-cs-fixer.php',
     '.php-cs-fixer.dist.php',
 ]);
 
-// pick a configuration based on php version
+// Pick a configuration based on php version
 $ruleSet = new Php81();
 $ruleSet->setHeader(<<<'EOF'
-    This file is part of `flexis/php-cs-fixer-config`.
+    This file is part of configuration package for PHP CS Fixer.
 
     (c) Martin Miskovic <miskovic.martin@gmail.com>
 
@@ -46,7 +45,8 @@ $ruleSet->setHeader(<<<'EOF'
     the LICENSE file that was distributed with this source code.
     EOF);
 
-$config = ConfigFactory::fromRuleSet($ruleSet);
+$config = new Config();
+$config->setRules($ruleSet->getRules());
 $config->setFinder($finder);
 $config->setCacheFile('.php-cs-fixer.cache');
 
@@ -59,41 +59,28 @@ Add cache file created by PHP CS Fixer to `.gitignore`:
 
 ```
 .php-cs-fixer.cache
-# or
+```
+
+or
+
+```
 *.cache
 ```
+
 ### Makefile
 
-Create a Makefile with desired targets, e.g.:
+Create a Makefile with desired recipes, e.g.:
 
 ```Makefile
 cs:
-	vendor/bin/php-cs-fixer fix
-
-cs-ci:
-	vendor/bin/php-cs-fixer fix --dry-run --no-interaction --show-progress=none --stop-on-violation
+	php vendor/bin/php-cs-fixer fix
 ```
 
 ## Fixing issues
 
-### Manually
-
 To fix coding standards, simply run
 
-```sh
-$ make cs
-```
-
-### CI
-
-```sh
-$ make cs-ci
-```
-
-### Pre-commit hook
-
-Create a pre-commit hook, according to this example
-[`.git/pre-commit`](https://gist.github.com/miskovicm/d3d2fafe3a3ca47c79bab0c80d1fb9c4).
+`$ make cs`
 
 ## License
 
