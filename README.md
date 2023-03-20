@@ -57,15 +57,7 @@ return $config;
 
 Add cache file created by PHP CS Fixer to `.gitignore`:
 
-```
-.php-cs-fixer.cache
-```
-
-or
-
-```
-*.cache
-```
+`.php-cs-fixer.cache`
 
 ### Makefile
 
