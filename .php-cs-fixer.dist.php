@@ -11,8 +11,8 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-use Flexis\PhpCsFixer\ConfigFactory;
-use Flexis\PhpCsFixer\RuleSet\Php81;
+use Flexis\PhpCsFixer\RuleSet\Sets\Php81;
+use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = new Finder();
@@ -33,7 +33,8 @@ $ruleSet->setHeader(<<<'EOF'
     the LICENSE file that was distributed with this source code.
     EOF);
 
-$config = ConfigFactory::fromRuleSet($ruleSet);
+$config = new Config();
+$config->setRules($ruleSet->getRules());
 $config->setFinder($finder);
 $config->setCacheFile('.php-cs-fixer.cache');
 

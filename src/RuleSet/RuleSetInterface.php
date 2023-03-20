@@ -11,10 +11,10 @@ declare(strict_types=1);
  * the LICENSE file that was distributed with this source code.
  */
 
-namespace Flexis\PhpCsFixer;
+namespace Flexis\PhpCsFixer\RuleSet;
 
 /**
- * Custom set of coding standard rules.
+ * Interface for a custom set of coding standard rules.
  */
 interface RuleSetInterface
 {
@@ -26,14 +26,12 @@ interface RuleSetInterface
     public function getRules(): array;
 
     /**
-     * Returns the minimum required PHP version (PHP_VERSION_ID).
-     *
-     * @see http://php.net/manual/en/reserved.constants.php
-     */
-    public function getPhpVersion(): int;
-
-    /**
-     * Set automatic header comment.
+     * Set header comment.
      */
     public function setHeader(string $header): void;
+
+    /**
+     * Get header comment.
+     */
+    public function getHeader(): string;
 }
