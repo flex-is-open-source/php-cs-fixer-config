@@ -1,5 +1,7 @@
 # Changelog
 
-## 0.0.1 - 2023-02-27
+## 0.1.0 - 2023-03-20
 ### Added
--   Initial release
+-   Custom set of rules for PHP 8.1
+-   Unit Tests
+-   `RuleSet\HeaderCommentTrait` for handling header comments
