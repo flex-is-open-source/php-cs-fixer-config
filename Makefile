@@ -1,6 +1,6 @@
 PHP_ENABLE_XDEBUG = -d zend_extension=xdebug.so -d xdebug.mode=coverage
 
-.PHONY: help compile lint analyse test coverage build
+.PHONY: help compile build lint cs analyse test testdox coverage
 
 help: # Show help for each of the Makefile recipes.
 	@grep -E '^[a-zA-Z0-9 -]+:.*#' Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
@@ -13,6 +13,7 @@ build: lint analyse test coverage # Build and test application.
 
 lint: # Fix coding standards violations.
 	php vendor/bin/php-cs-fixer fix
+
 cs: lint # \033[33mAlias\033[00m for \033[1;32mlint\033[00m recipe.
 
 analyse: # Analyze code quality.
