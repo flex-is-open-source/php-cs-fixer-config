@@ -17,41 +17,7 @@ It is based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.co
 
 ### Configuration
 
-Create a configuration file `.php-cs-fixer.dist.php`:
-
-```php
-<?php
-
-declare(strict_types=1);
-
-use Flexis\PhpCsFixer\RuleSet\Sets\Php81;
-use PhpCsFixer\Config;
-use PhpCsFixer\Finder;
-
-$finder = new Finder();
-$finder->in(__DIR__);
-$finder->append([
-    '.php-cs-fixer.dist.php',
-]);
-
-// Pick a configuration based on php version
-$ruleSet = new Php81();
-$ruleSet->setHeader(<<<'EOF'
-    This file is part of configuration package for PHP CS Fixer.
-
-    (c) Martin Miskovic <miskovic.martin@gmail.com>
-
-    For the full copyright and license information, please view
-    the LICENSE file that was distributed with this source code.
-    EOF);
-
-$config = new Config();
-$config->setRules($ruleSet->getRules());
-$config->setFinder($finder);
-$config->setCacheFile('.php-cs-fixer.cache');
-
-return $config;
-```
+Create a configuration file [`.php-cs-fixer.dist.php`](../blob/main/.php-cs-fixer.dist.php).
 
 ### Git
 
