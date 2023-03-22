@@ -25,15 +25,6 @@ Add cache file created by PHP CS Fixer to `.gitignore`:
 
 `.php-cs-fixer.cache`
 
-### Makefile
-
-Create a Makefile with desired recipes, e.g.:
-
-```Makefile
-cs:
-	php vendor/bin/php-cs-fixer fix
-```
-
 ## Fixing issues
 
 To fix coding standards, simply run
