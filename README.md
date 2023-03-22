@@ -27,9 +27,11 @@ Add cache file created by PHP CS Fixer to `.gitignore`:
 
 ## Fixing issues
 
-To fix coding standards, simply run
+To fix coding standards, simply run:
 
-`$ make cs`
+`$ php vendor/bin/php-cs-fixer fix`
+
+> 💡 See the [official documentation](https://cs.symfony.com/doc/usage) for more examples.
 
 ## License
 
