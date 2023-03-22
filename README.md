@@ -17,7 +17,7 @@ It is based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.co
 
 ### Configuration
 
-Create a configuration file [`.php-cs-fixer.dist.php`](../blob/main/.php-cs-fixer.dist.php).
+Create a configuration file [`.php-cs-fixer.dist.php`](/.php-cs-fixer.dist.php).
 
 ### Git
 
