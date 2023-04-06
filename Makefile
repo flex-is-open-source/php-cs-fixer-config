@@ -1,4 +1,4 @@
-PHP_ENABLE_XDEBUG = -d zend_extension=xdebug.so -d xdebug.mode=coverage
+PHP_COVERAGE_MODE = -d zend_extension=xdebug.so -d xdebug.mode=coverage
 
 .PHONY: help compile build lint cs analyse test testdox coverage
 
@@ -26,4 +26,4 @@ testdox: # Run application tests in TestDox format.
 	@php vendor/bin/phpunit --colors --testdox
 
 coverage: # Generate code coverage report in HTML format.
-	@php ${PHP_ENABLE_XDEBUG} vendor/bin/phpunit -v --coverage-html=.phpunit/coverage-html --colors --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
+	@php ${PHP_COVERAGE_MODE} vendor/bin/phpunit -v --coverage-html=.phpunit/coverage-html --colors --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
