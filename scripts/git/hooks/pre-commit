@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git_check_whitespace_cached
+
+php_lint_cached
+
+php_test
