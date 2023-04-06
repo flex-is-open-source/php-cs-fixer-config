@@ -1,7 +1,7 @@
 # Configuration for PHP Coding Standards Fixer
 
 [![Version](https://img.shields.io/packagist/v/flexis/php-cs-fixer-config?label=stable)](https://packagist.org/packages/flexis/php-cs-fixer-config)
-[![Build](https://github.com/flex-is/php-cs-fixer-config/actions/workflows/main.yml/badge.svg)](https://github.com/flex-is/php-cs-fixer-config/actions/workflows/main.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/flex-is/php-cs-fixer-config/ci.yaml?branch=main&logo=github)](https://github.com/flex-is/php-cs-fixer-config/actions/workflows/ci.yaml)
 [![Coverage](https://app.codacy.com/project/badge/Coverage/246b2492dc404695b0deee6e6ecadc75)](https://www.codacy.com/gh/flex-is/php-cs-fixer-config/dashboard)
 [![License: MIT](https://img.shields.io/badge/license-MIT-informational.svg)](https://opensource.org/licenses/MIT)
 
