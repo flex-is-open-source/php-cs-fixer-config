@@ -1,13 +1,15 @@
+SHELL = /bin/bash
 PHP_COVERAGE_MODE = -d zend_extension=xdebug.so -d xdebug.mode=coverage
 
-.PHONY: help compile build lint cs analyse test testdox coverage
+.PHONY: help install build lint cs analyse test testdox coverage
 
 help: # Show help for each of the Makefile recipes.
 	@grep -E '^[a-zA-Z0-9 -]+:.*#' Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
-compile: # Compile and install dependencies.
+install: # Install dependencies.
 	@composer validate --strict
 	@composer install
+	@git_install_hooks
 
 build: lint analyse test coverage # Build and test application.
 
