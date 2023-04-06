@@ -9,17 +9,17 @@ This repository was created for the purpose of introducing uniform coding standa
 
 It is based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.com/refinery29/php-cs-fixer-config).
 
-## Installation
+# Installation
 
 `$ composer require --dev flexis/php-cs-fixer-config`
 
-## Usage
+# Usage
 
-### Configuration
+## Configuration
 
 Create a configuration file [`.php-cs-fixer.dist.php`](/.php-cs-fixer.dist.php).
 
-### Git
+## Git
 
 Add cache file created by PHP CS Fixer to `.gitignore`:
 
@@ -33,6 +33,6 @@ To fix coding standards, simply run:
 
 > 💡 See the [official documentation](https://cs.symfony.com/doc/usage) for more examples.
 
-## License
+# License
 
 This package is licensed using the MIT License.
