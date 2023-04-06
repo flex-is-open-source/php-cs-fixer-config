@@ -6,24 +6,24 @@ help: # Show help for each of the Makefile recipes.
 	@grep -E '^[a-zA-Z0-9 -]+:.*#' Makefile | sort | while read -r l; do printf "\033[1;32m$$(echo $$l | cut -f 1 -d':')\033[00m:$$(echo $$l | cut -f 2- -d'#')\n"; done
 
 compile: # Compile and install dependencies.
-	composer validate --strict
-	composer install
+	@composer validate --strict
+	@composer install
 
 build: lint analyse test coverage # Build and test application.
 
 lint: # Fix coding standards violations.
-	php vendor/bin/php-cs-fixer fix
+	@php vendor/bin/php-cs-fixer fix
 
 cs: lint # \033[33mAlias\033[00m for \033[1;32mlint\033[00m recipe.
 
 analyse: # Analyze code quality.
-	php vendor/bin/phpstan analyse
+	@php vendor/bin/phpstan analyse
 
 test: # Run application tests.
-	php vendor/bin/phpunit --colors -v
+	@php vendor/bin/phpunit --colors -v
 
 testdox: # Run application tests in TestDox format.
-	php vendor/bin/phpunit --colors --testdox
+	@php vendor/bin/phpunit --colors --testdox
 
 coverage: # Generate code coverage report in HTML format.
-	php ${PHP_ENABLE_XDEBUG} vendor/bin/phpunit -v --coverage-html=.phpunit/coverage-html --colors --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
+	@php ${PHP_ENABLE_XDEBUG} vendor/bin/phpunit -v --coverage-html=.phpunit/coverage-html --colors --display-incomplete --display-skipped --display-deprecations --display-errors --display-notices --display-warnings
