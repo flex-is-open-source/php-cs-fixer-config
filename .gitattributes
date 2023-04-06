@@ -21,6 +21,7 @@
 # Exclude files from exporting          #
 #########################################
 
+/scripts/ export-ignore
 /tests/ export-ignore
 /.* export-ignore
 /Makefile export-ignore
