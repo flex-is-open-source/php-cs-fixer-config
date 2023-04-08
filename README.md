@@ -11,23 +11,20 @@ It is based on the ideas of [`refinery29/php-cs-fixer-config`](https://github.co
 
 # Installation
 
+Install this package via composer:
+
 `$ composer require --dev flexis/php-cs-fixer-config`
+
+Create a configuration file [`.php-cs-fixer.dist.php`](/.php-cs-fixer.dist.php):
+1.  Create `Finder` with paths to the source code.
+2.  Choose a set of rules according to the target PHP version.
+3.  *(optional)* Set header comment.
+4.  Set cache filename and add it to the `.gitignore`.
+    -   `.php-cs-fixer.cache`
 
 # Usage
 
-## Configuration
-
-Create a configuration file [`.php-cs-fixer.dist.php`](/.php-cs-fixer.dist.php).
-
-## Git
-
-Add cache file created by PHP CS Fixer to `.gitignore`:
-
-`.php-cs-fixer.cache`
-
-## Fixing issues
-
-To fix coding standards, simply run:
+To fix coding standards manually, run:
 
 `$ php vendor/bin/php-cs-fixer fix`
 
