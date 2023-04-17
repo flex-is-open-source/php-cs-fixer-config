@@ -1,6 +1,8 @@
 {
     "name": "flexis/php-cs-fixer-config",
     "description": "Provides common configurations for friendsofphp/php-cs-fixer, used within FLEX-IS",
+    "keywords": ["dev", "php-cs-fixer"],
+    "homepage": "https://github.com/flex-is/php-cs-fixer-config",
     "type": "library",
     "license": "MIT",
     "authors": [
